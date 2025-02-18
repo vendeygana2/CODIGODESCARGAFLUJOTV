@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana Emergente</title>
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        .popup {
+            display: block;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 5px solid orange; /* Aumenta el grosor del borde */
+            border-radius: 15px; /* Bordes redondeados */
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        .popup .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .popup button {
+            background-color: #f08725; /* Color especificado */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .popup button:hover {
+            background-color: #d9761b; /* Color ligeramente más oscuro para el efecto hover */
+        }
+        .copied-alert {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border: 3px solid orange;
+            background-color: #ffffff;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="popup" class="popup">
+        <span class="close" onclick="redirectToURL()">&times;</span>
+        <h1><img src="https://images.seeklogo.com/logo-png/55/1/flujo-tv-logo-png_seeklogo-556291.png" alt="FLUJO TV" width="100"></h1>
+        <h2>FLUJO TV Actualización v7.1.8</h2>
+        <p>👉<b>CODIGO DOWNLOADER:</b></p>
+        <p>Ingrese el código:</p>
+        <p>➡️ 414594 <button onclick="copySingleCode('414594')">Copiar Código</button></p>
+        <p>➡️ 168631</p>
+        <p>👉<b>Smartphones / Android (v7.1.8)</b></p>
+        <p>➡️ <a href="https://bit.ly/flujo-mobile-v718" target="_blank">https://bit.ly/flujo-mobile-v718</a> <button onclick="copySingleLink('https://bit.ly/flujo-mobile-v718')">Copiar Código</button></p>
+        <p>👉<b>Android Smart TV / Fire TV Stick / TV Box / «Android TV» (v7.1.8)</b></p>
+        <p>➡️ <a href="https://bit.ly/flujo-tv-v718" target="_blank">https://bit.ly/flujo-tv-v718</a></p>
+        <button onclick="copyContent()">Copiar Todo</button>
+        <button onclick="redirectToURL()">Cerrar</button>
+    </div>
+
+    <div id="copiedAlert" class="copied-alert">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="WhatsApp Logo" width="50">
+        <p>Información copiada<br>Se copió la información. Puede pegarla en su WhatsApp u otro lugar para tenerla disponible.</p>
+    </div>
+
+    <script>
+        function copySingleCode(code) {
+            navigator.clipboard.writeText(code).then(() => {
+                showCopiedAlert();
+            }, () => {
+                alert('Error al copiar el código.');
+            });
+        }
+
+        function copySingleLink(link) {
+            navigator.clipboard.writeText(link).then(() => {
+                showCopiedAlert();
+            }, () => {
+                alert('Error al copiar el enlace.');
+            });
+        }
+
+        function copyContent() {
+            const text = `FLUJO TV Actualización v7.1.8
+CODIGO DOWNLOADER:
+Ingrese el código:
+414594
+168631
+Smartphones / Android (v7.1.8)
+https://bit.ly/flujo-mobile-v718
+Android Smart TV / Fire TV Stick / TV Box / «Android TV» (v7.1.8)
+https://bit.ly/flujo-tv-v718`;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                showCopiedAlert();
+            }, () => {
+                alert('Error al copiar la información.');
+            });
+        }
+
+        function showCopiedAlert() {
+            const alertBox = document.getElementById('copiedAlert');
+            alertBox.style.display = 'block';
+            setTimeout(() => {
+                alertBox.style.display = 'none';
+            }, 3000);
+        }
+
+        function redirectToURL() {
+            window.location.href = 'https://app.jotform.com/250464329670661';
+        }
+    </script>
+</body>
+</html>
